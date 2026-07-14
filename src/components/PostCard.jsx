@@ -1,4 +1,5 @@
 //1 post 
+//eerst hardcode gemaakt en toen de props toegevoegd 
 
 function PostCard({image, title, upvotes, author}) {
     return (

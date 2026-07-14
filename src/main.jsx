@@ -1,3 +1,6 @@
+//het startpunt van de app waar React wordt 
+// gekoppeld aan de DOM en de Redux store wordt gekoppeld.
+
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
@@ -8,3 +11,6 @@ createRoot(document.getElementById('root')).render(
     <App />
   </StrictMode>,
 )
+
+
+
