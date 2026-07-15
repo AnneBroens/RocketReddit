@@ -15,3 +15,5 @@ function PostCard({image, title, upvotes, author}) {
 }
 
 export default PostCard
+
+//next voeg aan App.jsx toe om te renderen 
