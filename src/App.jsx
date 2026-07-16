@@ -5,6 +5,7 @@ import PostCard from "./components/PostCard";
 import PostFeed from "./components/PostFeed";
 import SearchBar from "./components/SearchBar";
 import LoadingSpinner from "./components/LoadingSpinner";
+import ErrorMessage from "./Components/ErrorMessage";
 
 function App() {
 return (
@@ -12,6 +13,7 @@ return (
     <PostFeed/>
     <SearchBar />
     <LoadingSpinner />
+    <ErrorMessage />
   </div>
   )
 }
