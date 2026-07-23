@@ -1,24 +1,27 @@
-import { useState} from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setSearchTerm } from "../store/postSlice";
 
-function SearchBar({onSearch}) {
-    const [term, setTerm] = useState('');
+function SearchBar() {
+  const [term, setTerm] = useState('');
+  const dispatch = useDispatch();
 
-    const handleSearch = () => {
-        onSearch(term);
-    }
- 
-    return (
-        <div className="searchbar">
-            <input
-                onKeyDown={(e) => e.key === 'Enter' && handleSearch()} //zoekt ook met enter
-                type='text'
-                placeholder="Find what you are looking for"
-                onChange={(e) => setTerm(e.target.value)}
-                value={term}
-            />
-            <button onClick={() => handleSearch(term)}>Search</button>
-        </div>
-    );
+  const handleSearch = () => {
+    dispatch(setSearchTerm(term));
+  };
+
+  return (
+    <div className="searchbar">
+      <input
+        onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+        type="text"
+        placeholder="Find what you are looking for"
+        onChange={(e) => setTerm(e.target.value)}
+        value={term}
+      />
+      <button onClick={handleSearch}>Search</button>
+    </div>
+  );
 }
 
 export default SearchBar;

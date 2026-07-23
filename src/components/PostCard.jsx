@@ -1,19 +1,19 @@
-//1 post 
-//eerst hardcode gemaakt en toen de props toegevoegd 
 
-function PostCard({image, title, upvotes, author}) {
-    return (
-        <div>
-            <img src={image} alt={title}/>
-            <h2>{title}</h2>
-            <span>{upvotes}</span>
-            <span>{author}</span>
-            <button>Share</button>
-            <button>Comment</button>
-        </div>
-    )
+
+
+
+
+function PostCard({ title, upvotes, author, numComments, url }) {
+  return (
+    <div className="post-card">
+      <h2>{title}</h2>
+      <span>{upvotes} upvotes</span>
+      <span>by {author}</span>
+      <span>{numComments} comments</span>
+      <button>Share</button>
+      <button>Comment</button>
+    </div>
+  );
 }
 
-export default PostCard
-
-//next voeg aan App.jsx toe om te renderen 
+export default PostCard;

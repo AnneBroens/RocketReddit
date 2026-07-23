@@ -1,22 +1,12 @@
 //routing tussen pagina's
 //Dit is de data die naar postcard wordt gestuurd via de props 
 
-import PostCard from "./components/PostCard";
-import PostFeed from "./components/PostFeed";
-import SearchBar from "./components/SearchBar";
-import LoadingSpinner from "./components/LoadingSpinner";
-import ErrorMessage from "./Components/ErrorMessage";
+import './App.css';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router';
 
 function App() {
-return (
-  <div>
-    <PostFeed/>
-    <SearchBar />
-    <LoadingSpinner />
-    <ErrorMessage />
-  </div>
-  )
+  return <RouterProvider router={router} />;
 }
 
-
-export default App
+export default App;

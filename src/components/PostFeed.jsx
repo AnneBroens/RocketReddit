@@ -1,41 +1,37 @@
-//Lijst van posts
-
+import { useSelector } from "react-redux";
 import PostCard from "./PostCard";
-
-
-// e hebt een array nodig om over te mappen. Voor nu hardcode je die bovenaan de component:
-const posts = [
-    {
-        id: 1,
-        title: "Ocean protection is entering a new era",
-        author: "User8384",
-        upvotes: 307,
-        image: "/Oceancleanup.avif"
-    },
-
-       {
-        id: 2,
-        title: "New solar technology break efficiency record",
-        author: "User1234",
-        upvotes: 246,
-        image: "/Oceancleanup.avif"
-    }
-
-]
+import { Link } from "react-router-dom";
 
 function PostFeed() {
-    return (
-        <div>
-        {posts.map(post => (
-            <PostCard 
-            key={post.id} //heeft React nodig om elk item in een lijst uniek te identificeren. Zonder key krijg je een waarschuwing in de console.
-            title={post.title} 
-            author={post.author} 
-            upvotes={post.upvotes} 
-            image={post.image} />
-             ))}
-        </div>
-    )
+  const posts = useSelector((state) => state.posts.items);
+  const searchTerm = useSelector((state) => state.posts.searchTerm);
+
+  const filteredPosts = posts.filter((post) =>
+    post.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  return (
+    <div>
+      {filteredPosts.map((post) => (
+        <div key={post.id} className="post-card-wrapper">
+          <Link to={`/post/${post.id}`}>
+        <PostCard
+          title={post.title}
+          author={post.by}
+          upvotes={post.score}
+          numComments={post.descendants}
+          numComments={post.descendants}
+        />
+        </Link>
+        {post.url && (
+          <a href={post.url} target="_blank" rel="noopener noreferrer">
+            Read more
+          </a>
+        )}
+    </div>
+     ))}
+       </div>
+  );
 }
-       
+
 export default PostFeed;

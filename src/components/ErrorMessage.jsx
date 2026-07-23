@@ -1,12 +1,12 @@
  
-function ErrorMessage({onRetry}) {
+function ErrorMessage({ message, onRetry }) {
     return (
         <div>
-            <p>Oops..something is wrong</p> 
+            <p>Oops..something is wrong: {message}</p> 
             <button onClick={onRetry} >Try again</button>
          
         </div>
     )
 }
 
-export default ErrorMessage
+export default ErrorMessage;
